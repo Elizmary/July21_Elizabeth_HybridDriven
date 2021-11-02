@@ -32,7 +32,7 @@ public class PIM_AddEmployee extends PredefinedActions{
 	}
 	
 	public PIM_AddEmployee clickOnNext() {
-		driver.findElement(By.xpath("//button[text()='Next']")).click();
+		driver.findElement(By.xpath("//div[@class='modal-footer']/button[text()='Next']")).click();
 		return this;
 	}
 	
@@ -98,9 +98,8 @@ public class PIM_AddEmployee extends PredefinedActions{
 		return this;
 	}
 	
-	public PIM_AddEmployee clickOnEmployeeList() {
-		driver.findElement(By.xpath("//span[text()='Employee List']")).click();
-		return this;
+	public boolean successMessage() {
+		return driver.findElement(By.xpath("//div[text()='Successfully Saved']")).isDisplayed();
 	}
 	
 }

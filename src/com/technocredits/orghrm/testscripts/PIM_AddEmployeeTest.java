@@ -1,5 +1,6 @@
 package com.technocredits.orghrm.testscripts;
 
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -23,9 +24,9 @@ public class PIM_AddEmployeeTest extends TestBase{
 		PIM_AddEmployee pim_AddEmployee = new PIM_AddEmployee();
 		System.out.println("Step: Enter all the mandatory details and save the entry");
 		pim_AddEmployee
-			.setEmpFirstName("Elizabeth")
-			.setEmpMiddleName("Jems")
-			.setEmpLastName("S")
+			.setEmpFirstName("Eliza")
+			.setEmpMiddleName("Mary")
+			.setEmpLastName("Jems")
 			.setEmployeeLocation("Australian Regional HQ")
 			.clickOnNext()
 			.setHobbies("Dancing")
@@ -36,6 +37,8 @@ public class PIM_AddEmployeeTest extends TestBase{
 			.setFTE("0.5")
 			.setTemporaryDepartment("Sub unit-2")
 			.clickOnSave();
+		Assert.assertTrue(pim_AddEmployee.successMessage());
+		
 	}
 	
 	@AfterMethod

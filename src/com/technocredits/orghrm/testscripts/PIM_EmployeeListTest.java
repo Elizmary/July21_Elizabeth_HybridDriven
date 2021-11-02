@@ -1,4 +1,5 @@
 package com.technocredits.orghrm.testscripts;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -15,15 +16,13 @@ public class PIM_EmployeeListTest extends TestBase {
 	}
 	
 	@Test
-	public void verifyEmployeeTest() {
+	public void verifyEmployeeList() {
 		System.out.println("Step: Navigate to Employee List");
 		menuPage.navigateTo("PIM->Employee List");
 		PIM_EmployeeList pim_EmployeeList = new PIM_EmployeeList();
 		System.out.println("Step: Search for the Employee");
-		pim_EmployeeList
-			.clickOnFilter()
-			.setEmpName("Elizabeth")
-			.clickOnSearch();
+		pim_EmployeeList.findEmpNameInSearch("Elizabeth S Mary ").clickOnSearch();
+		Assert.assertTrue(pim_EmployeeList.isEmpDisplayed("Elizabeth S Mary "));
 	}
 	
 }

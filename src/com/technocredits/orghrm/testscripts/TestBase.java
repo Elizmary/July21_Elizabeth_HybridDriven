@@ -8,7 +8,7 @@ import com.technocredits.orghrm.pages.MenuPage;
 
 public class TestBase {
 
-	SoftAssert softAsset = new SoftAssert();
+	SoftAssert softAssert = new SoftAssert();
 	
 	public MenuPage setup() {
 		System.out.println("STEP - Launch OrgHrm Application");

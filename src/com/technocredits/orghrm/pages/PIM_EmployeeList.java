@@ -6,20 +6,20 @@ import com.technocredits.orghrm.base.PredefinedActions;
 
 public class PIM_EmployeeList extends PredefinedActions{
 	
-	public PIM_EmployeeList clickOnFilter() {
-		driver.findElement(By.xpath("//i[text()='ohrm_filter']")).click();
+	public PIM_EmployeeList findEmpNameInSearch(String empName) {
+		driver.findElement(By.xpath("//input[@id='employee_name_quick_filter_employee_list_value']")).sendKeys("Elizabeth S Mary ");
 		return this;
 	}
 	
-	public PIM_EmployeeList setEmpName(String empName) {
-		driver.findElement(By.xpath("//input[@id='emp_search_mdl_employee_name_filter_value']")).clear();
-		driver.findElement(By.xpath("//input[@id='emp_search_mdl_employee_name_filter_value']")).sendKeys(empName);
-		driver.findElement(By.xpath("//input[@id='emp_search_mdl_employee_name_filter_value']")).click();
+	public PIM_EmployeeList clickOnSearch() {
+		driver.findElement(By.xpath("//i[text()='ohrm_search']")).click();
 		return this;
+	}
+	
+	public boolean isEmpDisplayed(String empName) {
+		return driver.findElement(By.xpath("//table[@id='employeeListTable']/tbody//td[text()='"+empName+"']")).isDisplayed();
+		 
 	}
 
-	public PIM_EmployeeList clickOnSearch() {
-		driver.findElement(By.xpath("//a[text()='Search']")).click();
-		return this;
-	}
+	
 }
